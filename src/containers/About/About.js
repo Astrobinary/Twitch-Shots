@@ -25,7 +25,7 @@ export default class About extends Component {
             target="_blank">all the contributors</a>.
         </p>
 
-        <h3>Mini Bar <span style={{color: '#aaa'}}>(not that kind)</span></h3>
+        <h3>Mini bar <span style={{color: '#aaa'}}>(not that kind)</span></h3>
 
         <p>Hey! You found the mini info bar! The following component is display-only. Note that it shows the same
           time as the info bar.</p>
