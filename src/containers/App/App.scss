@@ -1,24 +1,88 @@
-.app{
-
-}
-
+@import "../../theme/variables.scss";
 .mainNav {
-    background-color: #e5e4e4;
-    width: 250px;
-    height: 1000px;
-    position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #FAFAFA;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  box-shadow: -6px 0 25px -4px rgba(0,0,0,0.75);
+  z-index: 1;
+  h3 {
+    color: $primary;
+    font-size: 14px;
+    font-family: $font-family-montserrat;
+    padding-left: 20px;
+    margin-top: 30px;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    a {
+      color: #8d9296;
+      li {
+        font-family: $font-family-montserrat;
+        font-size: 14px;
+        padding: 10px 40px;
+        &:hover {
+          background-color: $primary;
+          color: #FAFAFA;
+        }
+        i {
+          font-size: 18px;
+          padding-right: 15px;
+        }
+      }
+    }
+  }
 }
-
-.search{
+.logo {
+  font-size: 30px;
+  text-align: center;
+  font-family: $font-family-sansation;
+  font-weight: bold;
+  color: #535659;
+  padding: 4px 0;
+  background-color: $primary;
+  p {
+    margin: 0;
+  }
+  .color {
+    color: #FAFAFA;
+  }
+}
+.search {
+  height: 50px;
+  width: 100%;
+  background-color: #505253;
+  margin-left: 250px;
+  color: #8d9296;
+  position: fixed;
+  box-shadow: 0 2px 20px -4px rgba(0,0,0,0.75);
+  i {
+    position: absolute;
+    font-size: 22px;
+    padding-top: 13px;
+    padding-left: 40px;
+  }
+  input {
+    font-family: $font-family-montserrat;
+    height: 48px;
     width: 100%;
-    height: 60px;
-    background-color: #383a3b;
-    margin-top: -19px;
-    position: fixed;
-    margin-left: 250px;
-
+    border: none;
+    background: none;
+    font-size: 18px;
+    padding-left: 80px;
+    &:focus {
+      outline: none;
+    }
+  }
 }
-
-.appContent{
-display: inline-block;
+.login {
+  position: fixed;
+  margin-left: calc(100% - 200px);
+  height: 50px;
+  width: 200px;
+  background-color: #585A5C;
 }

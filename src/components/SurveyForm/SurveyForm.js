@@ -3,7 +3,6 @@ import {reduxForm} from 'redux-form';
 import surveyValidation from './surveyValidation';
 
 function asyncValidate(data) {
-  // TODO: figure out a way to move this to the server. need an instance of ApiClient
   if (!data.email) {
     return Promise.resolve({});
   }
@@ -137,4 +136,3 @@ class SurveyForm extends Component {
     );
   }
 }
-

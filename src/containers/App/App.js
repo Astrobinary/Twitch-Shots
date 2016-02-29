@@ -1,14 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { IndexLink } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import Nav from 'react-bootstrap/lib/Nav';
-import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
 import { InfoBar } from 'components';
+import { Login } from 'components';
 import { routeActions } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
@@ -61,15 +57,34 @@ export default class App extends Component {
   };
 
   render() {
-    const {user} = this.props;
+    // const {user} = this.props;
     const styles = require('./App.scss');
 
     return (
       <div className={styles.app}>
-        <div className={styles.mainNav}> <Link to="/hello">Home</Link>
+        <div className={styles.mainNav}>
+            <Link to="/"><div className={styles.logo}><p>Twitch<span className={styles.color}>Shots</span></p></div></Link>
+            <h3>MAIN MENU</h3>
+            <ul>
+              <Link to="/"> <li><i className="fa fa-home"/>Home</li></Link>
+              <Link to="/about"><li><i className="fa fa-fire"/>Popular</li></Link>
+              <Link to="/widgets"><li><i className="fa fa-star"/>Favorites</li></Link>
+              <Link to="/hello"><li><i className="fa fa-heart"/>Following</li></Link>
+            </ul>
+            <h3>NEW ACTIVITY</h3>
+            {/* // TODO: Create New ACTIVITY component*/}
 
-<div className={styles.search}> <Link to="/hello">Home</Link> </div>
-</div>
+        </div>
+
+        <div className={styles.search}>
+        {/* // TODO: Refactor into a component*/}
+        <i className="fa fa-search"/><input placeholder="search..."/>
+        </div>
+
+        <div className={styles.login}>
+        <Login/>
+        {/* // TODO: Refactor into a component*/}
+        </div>
 
         <Helmet {...config.app.head}/>
 
@@ -78,7 +93,7 @@ export default class App extends Component {
         </div>
         <InfoBar/>
 
-        <div className="well text-center">
+        <div className={styles.footer}>
           Have questions? Ask for help <a
           href="https://github.com/erikras/react-redux-universal-hot-example/issues"
           target="_blank">on Github</a> or in the <a

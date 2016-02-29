@@ -1,0 +1,19 @@
+@import "../../theme/variables.scss";
+.login {
+  margin-left: 35px;
+  color: #FAFAFA;
+  font-size: 16px;
+  font-family: $font-family-sansation;
+  height: 60px;
+  line-height: 50px;
+  img {
+    height: 30px;
+    width: auto;
+    border-radius: 30px;
+    margin-right: 10px;
+  }
+  i {
+    padding-left: 10px;
+    font-size: 15px;
+  }
+}
