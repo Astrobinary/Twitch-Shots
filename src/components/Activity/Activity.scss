@@ -1,0 +1,31 @@
+@import "../../theme/variables.scss";
+.activity {
+  margin-left: 35px;
+  color: #8d9296;
+  height: 45px;
+ line-height: 52px;
+  font-family: $font-family-montserrat;
+  font-size: 15px;
+  img {
+    height: 30px;
+    width: auto;
+    border-radius: 30px;
+    margin-right: 10px;
+  }
+  .number {
+    line-height: 1;
+    font-size: 12px;
+    font-family: "Montserrat";
+    background-color: #40c18c;
+    color: #FAFAFA;
+    padding: 4px;
+    width: 22px;
+    border-radius: 15px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    float: right;
+    margin-right: 40px;
+    margin-top: 16px;
+  }
+}

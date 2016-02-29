@@ -5,6 +5,7 @@ import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
 import { InfoBar } from 'components';
 import { Login } from 'components';
+import { Activity } from 'components';
 import { routeActions } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
@@ -72,6 +73,7 @@ export default class App extends Component {
               <Link to="/hello"><li><i className="fa fa-heart"/>Following</li></Link>
             </ul>
             <h3>NEW ACTIVITY</h3>
+            <Activity />
             {/* // TODO: Create New ACTIVITY component*/}
 
         </div>
