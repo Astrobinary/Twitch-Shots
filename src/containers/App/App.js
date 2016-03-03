@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
 import { Login } from 'components';
 import { Activity } from 'components';
 import { routeActions } from 'react-router-redux';
@@ -64,13 +63,13 @@ export default class App extends Component {
     return (
       <div className={styles.app}>
         <div className={styles.mainNav}>
-            <Link to="/"><div className={styles.logo}><p>Twitch<span className={styles.color}>Shots</span></p></div></Link>
+            <Link to="/"><div className={styles.logo}><p>TWITCH<span className={styles.color}>SHOTS</span></p></div></Link>
             <h3>MAIN MENU</h3>
             <ul>
               <Link to="/"> <li><i className="fa fa-home"/>Home</li></Link>
               <Link to="/about"><li><i className="fa fa-fire"/>Popular</li></Link>
               <Link to="/widgets"><li><i className="fa fa-star"/>Favorites</li></Link>
-              <Link to="/hello"><li><i className="fa fa-heart"/>Following</li></Link>
+              <Link to="/video"><li><i className="fa fa-heart"/>Video Test</li></Link>
             </ul>
             <h3>NEW ACTIVITY</h3>
             <Activity />
@@ -93,7 +92,6 @@ export default class App extends Component {
         <div className={styles.appContent}>
           {this.props.children}
         </div>
-        <InfoBar/>
 
         <div className={styles.footer}>
           Have questions? Ask for help <a

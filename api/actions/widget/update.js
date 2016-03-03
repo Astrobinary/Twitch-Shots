@@ -17,7 +17,7 @@ export default function update(req) {
         if (widget.id) {
           widgets[widget.id - 1] = widget;  // id is 1-based. please don't code like this in production! :-)
         }
-        resolve(widget);
+        // resolve(widget);
       }
     }, 1500); // simulate async db write
   });
