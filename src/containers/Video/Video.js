@@ -3,9 +3,33 @@ import Helmet from 'react-helmet';
 
 export default class Video extends Component {
 
+constructor() {
+  super();
+  this.state = {
+    showComments: true
+  };
+}
+
+handleComment() {
+  // this.setState({
+  //   showComments: !this.state.showComments
+  // });
+  this.scrollBehavior();
+}
+
+scrollBehavior() {
+  document.getElementById('comments').scrollTop = 0;
+  console.log('im in here');
+}
+
+handleUp() {
+  console.log('i pressed up?!');
+}
+
   render() {
     const styles = require('./Video.scss');
     const profile = require('../../../static/profile-test.jpg');
+    const goldglove = require('../../../static/goldglove.jpg');
     return (
     <div>
         <div className={styles.container}>
@@ -15,7 +39,7 @@ export default class Video extends Component {
                 <video src="http://cdn.oddshot.tv/capture/lirik-201602262235914.shot.mp4" controls="controls"></video>
             </div>
         <div className={styles.userNav}>
-            <div>
+            <div className={styles.bg}>
                 <img src={profile}/>
                 <div className={styles.nameTag}>
                         <div className={styles.user}>Agnostics</div>
@@ -24,7 +48,7 @@ export default class Video extends Component {
                             <span>Follow</span>
                         </div>
                 </div>
-                <div className={styles.navButtons}><i className={styles.button + ' fa fa-comment'}/>Comment</div>
+                <div onClick={this.handleComment.bind(this)} className={styles.navButtons}><i className={styles.button + ' fa fa-comment'}/>Comment</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-asterisk'}/>Edit Title</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-star'}/>Favorite</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-share'}/>Share</div>
@@ -33,8 +57,89 @@ export default class Video extends Component {
             </div>
         </div>
     </div>
-        <div className={styles.comments}>
+        {this.state.showComments && <div id="comments" className={styles.comments}>
+            <div className={styles.contain}>
+
+                <div className={styles.comment}>
+                    <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Goldglove</div></div>
+                    <div className={styles.singleComment}>
+                        <div className={styles.buttons}>
+                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-down"/>
+                            <div className={styles.points}>+9000</div>
+
+                        </div>
+                        <div className={styles.messageText}>
+                            Lorem
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.comment}>
+                    <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Hamglove</div></div>
+                    <div className={styles.singleComment}>
+                        <div className={styles.buttons}>
+                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-down"/>
+                            <div className={styles.points}>+34</div>
+                        </div>
+                        <div className={styles.messageText}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.comment}>
+                    <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Silverlove</div></div>
+                    <div className={styles.singleComment}>
+                        <div className={styles.buttons}>
+                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-down"/>
+                            <div className={styles.points}>+27</div>
+                        </div>
+                        <div className={styles.messageText}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.comment}>
+                    <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Baldglove</div></div>
+                    <div className={styles.singleComment}>
+                        <div className={styles.buttons}>
+                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-down"/>
+                            <div className={styles.points}>+11</div>
+                        </div>
+                        <div className={styles.messageText}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.comment}>
+                    <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Glovegold</div></div>
+                    <div className={styles.singleComment}>
+                        <div className={styles.buttons}>
+                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-down"/>
+                            <div className={styles.points}>+1</div>
+                        </div>
+                        <div className={styles.messageText}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className={styles.input}>
+                <div className={styles.avatarImg}><img src={profile}/><div className={styles.author}>Bob Sagot</div></div>
+                <input placeholder="Say something about the video here..."/>
+                <button>Submit</button>
+                </div>
+            </div>
         </div>
+}
     </div>
 	);
   }

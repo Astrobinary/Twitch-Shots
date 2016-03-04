@@ -7,7 +7,7 @@
   height: 100%;
   position: fixed;
   overflow: auto;
-  z-index: 2;
+  z-index: 3;
   h3 {
     color: $primary;
     font-size: 14px;
@@ -59,7 +59,7 @@
   color: #8d9296;
   position: fixed;
   box-shadow: 0 2px 20px -4px rgba(0,0,0,0.75);
-  z-index: 1;
+  z-index: 2;
   i {
     position: absolute;
     font-size: 22px;
