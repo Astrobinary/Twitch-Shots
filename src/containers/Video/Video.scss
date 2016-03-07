@@ -28,6 +28,14 @@ body {
       font-size: 24px;
       padding-bottom: 10px;
       margin-top: 1%;
+      letter-spacing: 1px;
+      position: absolute;
+      width: 80%;
+      margin: -41px auto;
+      z-index: 5;
+      left: 0;
+      right: 0;
+
       font-family: $font-family-montserrat;
       .points {
         color: $primary;
@@ -46,6 +54,7 @@ body {
     display: inline-block;
     .bg {
       background-color: #FAFAFA;
+      height: 100%;
     }
     .divide {
       display: inline-block;
@@ -101,11 +110,17 @@ body {
         }
       }
     }
+    .lastbutton {
+      border-right: 1px solid rgba(141, 146, 150, 0.15);
+    }
     .navButtons {
       display: inline-block;
+      border-left: 1px solid rgba(141, 146, 150, 0.15);
+      height: 100%;
       &:hover {
-        color: $primary;
+        color: #FAFAFA;
         cursor: pointer;
+        background-color: $primary;
       }
       .button {
         font-size: 24px;

@@ -1,4 +1,8 @@
 @import "../../theme/variables.scss";
+.app {
+  position: relative;
+  min-height: 100%;
+}
 .mainNav {
   margin: 0;
   padding: 0;
@@ -86,4 +90,14 @@
   width: 200px;
   background-color: #585A5C;
   z-index: 2;
+}
+.footer {
+  height: 50px;
+  color: #8D9296;
+  line-height: 4.5;
+  background-color: #FAFAFA;
+  text-align: center;
+  margin-left: 250px;
+  position: relative;
+  z-index: -100;
 }

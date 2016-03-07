@@ -6,24 +6,19 @@ export default class Video extends Component {
 constructor() {
   super();
   this.state = {
-    showComments: true
+    showComments: false
   };
 }
 
 handleComment() {
-  // this.setState({
-  //   showComments: !this.state.showComments
-  // });
-  this.scrollBehavior();
+  this.setState({
+    showComments: !this.state.showComments
+  });
 }
 
-scrollBehavior() {
-  document.getElementById('comments').scrollTop = 0;
-  console.log('im in here');
-}
-
-handleUp() {
-  console.log('i pressed up?!');
+title() {
+  document.getElementById('title').style.opacity = 0.05;
+  document.getElementById('search').focus();
 }
 
   render() {
@@ -35,8 +30,8 @@ handleUp() {
         <div className={styles.container}>
             <Helmet title="Video" />
             <div className={styles.video}>
-                <div className={styles.title}>Random guy shooting darts<span className={styles.points}>+32</span></div>
-                <video src="http://cdn.oddshot.tv/capture/lirik-201602262235914.shot.mp4" controls="controls"></video>
+                <div className={styles.title} onClick={this.title.bind(this)} id="title">Random guy shooting darts<span className={styles.points}>+32</span></div>
+                <video src="http://cdn.oddshot.tv/capture/mvg-league-2016030713918940.shot.mp4" controls="controls"></video>
             </div>
         <div className={styles.userNav}>
             <div className={styles.bg}>
@@ -53,7 +48,7 @@ handleUp() {
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-star'}/>Favorite</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-share'}/>Share</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-chevron-up'}/>Up Vote</div>
-                <div className={styles.navButtons}><i className={styles.button + ' fa fa-chevron-down'}/>Down Vote</div>
+                <div className={styles.navButtons + ' ' + styles.lastbutton}><i className={styles.button + ' fa fa-chevron-down'}/>Down Vote</div>
             </div>
         </div>
     </div>
@@ -64,9 +59,9 @@ handleUp() {
                     <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Goldglove</div></div>
                     <div className={styles.singleComment}>
                         <div className={styles.buttons}>
-                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-up"/>
                             <i className="fa fa-chevron-down"/>
-                            <div className={styles.points}>+9000</div>
+                            <div className={styles.points}>+9001</div>
 
                         </div>
                         <div className={styles.messageText}>
@@ -79,7 +74,7 @@ handleUp() {
                     <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Hamglove</div></div>
                     <div className={styles.singleComment}>
                         <div className={styles.buttons}>
-                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-up"/>
                             <i className="fa fa-chevron-down"/>
                             <div className={styles.points}>+34</div>
                         </div>
@@ -93,7 +88,7 @@ handleUp() {
                     <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Silverlove</div></div>
                     <div className={styles.singleComment}>
                         <div className={styles.buttons}>
-                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-up"/>
                             <i className="fa fa-chevron-down"/>
                             <div className={styles.points}>+27</div>
                         </div>
@@ -107,7 +102,7 @@ handleUp() {
                     <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Baldglove</div></div>
                     <div className={styles.singleComment}>
                         <div className={styles.buttons}>
-                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-up"/>
                             <i className="fa fa-chevron-down"/>
                             <div className={styles.points}>+11</div>
                         </div>
@@ -121,7 +116,7 @@ handleUp() {
                     <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Glovegold</div></div>
                     <div className={styles.singleComment}>
                         <div className={styles.buttons}>
-                            <i className="fa fa-chevron-up" onClick={this.handleUp.bind(this)}/>
+                            <i className="fa fa-chevron-up"/>
                             <i className="fa fa-chevron-down"/>
                             <div className={styles.points}>+1</div>
                         </div>
