@@ -6,7 +6,7 @@
 .mainNav {
   margin: 0;
   padding: 0;
-  width: 250px;
+  width: $side-bar-size;
   background-color: #FAFAFA;
   height: 100%;
   position: fixed;
@@ -46,7 +46,8 @@
   font-family: $font-family-sansation;
   font-weight: bold;
   color: #535659;
-  padding: 4px 0;
+  padding-top: 10px;
+  height: 40px;
   background-color: $primary;
   p {
     margin: 0;
@@ -59,7 +60,7 @@
   height: 50px;
   width: 100%;
   background-color: #505253;
-  margin-left: 250px;
+  margin-left: $side-bar-size;
   color: #8d9296;
   position: fixed;
   box-shadow: 0 2px 20px -4px rgba(0,0,0,0.75);
@@ -90,14 +91,4 @@
   width: 200px;
   background-color: #585A5C;
   z-index: 2;
-}
-.footer {
-  height: 50px;
-  color: #8D9296;
-  line-height: 4.5;
-  background-color: #FAFAFA;
-  text-align: center;
-  margin-left: 250px;
-  position: relative;
-  z-index: -100;
 }

@@ -13,3 +13,4 @@ export SurveyForm from './SurveyForm/SurveyForm';
 export WidgetForm from './WidgetForm/WidgetForm';
 export Login from './Login/Login';
 export Activity from './Activity/Activity';
+export Comments from './Comments/Comments';

@@ -1,41 +1,40 @@
 @import "../../theme/variables.scss";
 html,
 body {
-  width: 100%;
+  //width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 .container {
-  //background-image: url('../../../static/2252.jpg');
-  //background-image: url('../../../static/18.jpg');
   text-align: center;
-  margin-left: 250px;
+  margin-left: $side-bar-size;
   padding-top: 50px;
   background-color: #3D3E3F;
   box-shadow: 0 0 25px 0 rgba(0,0,0,0.15);
   .video {
     margin: 0 auto;
     position: relative;
+    height: calc(100vh - 142px);
     video {
-      width: 80%;
+      width: 100%;
+      height: 100%;
       box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.39);
     }
     .title {
       text-align: center;
       color: #FAFAFA;
-      font-size: 24px;
+      font-size: 22px;
       padding-bottom: 10px;
       margin-top: 1%;
       letter-spacing: 1px;
-      position: absolute;
+      position: fixed;
       width: 80%;
-      margin: -41px auto;
+      margin: -41px auto -41px 16%;
       z-index: 5;
       left: 0;
       right: 0;
-
       font-family: $font-family-montserrat;
       .points {
         color: $primary;
@@ -49,9 +48,9 @@ body {
     background-color: #FAFAFA;
     color: #8d9296;
     text-align: center;
-    margin-top: -5px;
     font-family: "Montserrat";
     display: inline-block;
+    position: relative;
     .bg {
       background-color: #FAFAFA;
       height: 100%;
@@ -65,10 +64,10 @@ body {
       position: absolute;
     }
     img {
-      height: 47px;
+      height: 50px;
       width: auto;
       border-radius: 40px;
-      margin-top: -25px;
+      margin-bottom: -8px;
       display: inline-block;
       border: 3px solid #8D9296;
       box-sizing: content-box;
@@ -78,7 +77,7 @@ body {
       }
     }
     .nameTag {
-      font-size: 16px;
+      font-size: 18px;
       display: inline-block;
       padding-left: 15px;
       padding-right: 25px;
@@ -96,7 +95,8 @@ body {
         border: 2px solid #A1A6A9;
         border-radius: 24px;
         font-size: 11px;
-        margin-top: 3px;
+        margin-top: 8px;
+        width: 100px;
         &:hover {
           background-color: $primary;
           border: 2px solid $primary;
@@ -127,134 +127,6 @@ body {
         margin: 25px 40px;
         display: block;
         margin-bottom: 4px;
-      }
-    }
-  }
-}
-.comments {
-  margin-left: 250px;
-  background: #ECECEC;
-  padding-top: 40px;
-  .contain {
-    width: 50%;
-    margin: 0 auto;
-    padding-bottom: 40px;
-    .comment {
-      padding-bottom: 25px;
-      .avatarImg {
-        position: relative;
-        z-index: 1;
-        img {
-          width: 50px;
-          height: auto;
-          border-radius: 40px;
-          border: 5px solid #ECECEC;
-          display: inline-block;
-          box-sizing: content-box;
-        }
-        .author {
-          display: inline-block;
-          font-family: "Montserrat";
-          font-size: 16px;
-          color: #8D9296;
-          letter-spacing: 2px;
-        }
-      }
-    }
-    .singleComment {
-      position: relative;
-      z-index: 0;
-      display: inline-block;
-      background: #FAFAFA;
-      border-radius: 6px;
-      padding: 20px 30px;
-      margin-left: 22px;
-      margin-top: -20px;
-      color: #8D9296;
-      font-family: "Sansation";
-      box-shadow: 0 0 25px 0 rgba(0,0,0,0.05);
-      min-width: 100%;
-      .buttons {
-        position: absolute;
-        background: #FAFAFA;
-        right: 0;
-        margin-bottom: -18px;
-        padding: 2px 10px;
-        bottom: 0;
-        font-size: 12px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        .points {
-          color: #44C7A7;
-          float: right;
-          font-size: 13px;
-        }
-        i {
-          padding-right: 10px;
-          padding-left: 5px;
-          &:hover {
-            color: $primary;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-    .input {
-      width: 100%;
-      margin: 40px auto;
-      .avatarImg {
-        position: relative;
-        z-index: 1;
-        img {
-          width: 50px;
-          height: auto;
-          border-radius: 40px;
-          border: 5px solid #ECECEC;
-          display: inline-block;
-          box-sizing: content-box;
-        }
-        .author {
-          display: inline-block;
-          font-family: "Montserrat";
-          font-size: 19px;
-          color: $primary;
-          letter-spacing: 2px;
-        }
-      }
-      input {
-        width: 100%;
-        height: 100px;
-        border-radius: 10px;
-        background: none;
-        border: none;
-        background-color: rgb(250, 250, 250);
-        border: 2px solid rgba(141, 146, 150, 0.29);
-        margin-left: 21px;
-        margin-top: -21px;
-        padding-left: 25px;
-        font-family: "Sansation";
-        color: #8D9296;
-        &:focus {
-          outline: none;
-          border: 2px solid $primary;
-        }
-      }
-      button {
-        float: right;
-        margin-top: 20px;
-        background: none;
-        background-color: #FAFAFA;
-        border: 2px solid rgba(141, 146, 150, 0.29);
-        padding: 1px 10px;
-        color: #8D9296;
-        border-radius: 5px;
-        font-size: 16px;
-        font-family: "Sansation";
-        &:hover {
-          background-color: $primary;
-          border: 2px solid $primary;
-          color: white;
-        }
       }
     }
   }
