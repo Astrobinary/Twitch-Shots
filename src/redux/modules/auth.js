@@ -24,6 +24,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: true,
+        balls: false,
         user: action.result
       };
     case LOAD_FAIL:

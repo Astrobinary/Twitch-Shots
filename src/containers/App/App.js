@@ -17,6 +17,7 @@ import { Link } from 'react-router';
     if (!isInfoLoaded(getState())) {
       promises.push(dispatch(loadInfo()));
     }
+
     if (!isAuthLoaded(getState())) {
       promises.push(dispatch(loadAuth()));
     }
@@ -57,14 +58,18 @@ export default class App extends Component {
   };
   handleBlur() {
     if (document.getElementById('title')) {
-      document.getElementById('title').style.opacity = 1;
+      document.getElementById('title').style.zIndex = 2;
     }
   }
   handleClick() {
-    if (document.getElementById('title')) {
-      document.getElementById('title').style.opacity = 0.05;
-    }
-  }
+     if (document.getElementById('title')) {
+       document.getElementById('title').style.zIndex = 0;
+     }
+   }
+
+ handleLoginMenu() {
+   // console.log(logout);
+ }
 
   render() {
     // const {user} = this.props;
@@ -83,18 +88,27 @@ export default class App extends Component {
             </ul>
             <h3>NEW ACTIVITY</h3>
             <Activity />
-            {/* // TODO: Create New ACTIVITY component*/}
-
+            <div className={styles.social}>
+                <div className={styles.icons}>
+                    <a href="https://twitter.com/_BrandonPadilla" target="_blank"><i className="fa fa-twitter"/></a>
+                    <a href="https://github.com/Agnostics" target="_blank"><i className="fa fa-github"/></a>
+                    <a href="https://github.com/Agnostics/Twitch-Shots/issues" target="_blank"><i className="fa fa-question-circle"/></a>
+                </div>
+            </div>
+            <footer>
+                <p>Made with <i className="fa fa-heart"/> by<a href="https://agnostics.github.io" target="_blank"> Brandon Padilla</a></p>
+            </footer>
         </div>
 
         <div className={styles.search}>
-        {/* // TODO: Refactor into a component*/}
-        <i className="fa fa-search"/><input onClick={this.handleClick.bind(this)} onBlur={this.handleBlur.bind(this)} placeholder="search..." id="search"/>
+			<i className="fa fa-search"><span>Random guy shotting darts</span></i>
+
+			<input onClick={this.handleClick.bind(this)} onBlur={this.handleBlur.bind(this)} id="search"/>
         </div>
 
-        <div className={styles.login}>
-        <Login/>
-        {/* // TODO: Refactor into a component*/}
+        <div className={styles.login} onClick={this.handleLoginMenu.bind(this)}>
+            <Login/>
+            <div className={styles.loginMenu}></div>
         </div>
 
         <Helmet {...config.app.head}/>

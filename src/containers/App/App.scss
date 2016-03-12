@@ -1,94 +1,157 @@
 @import "../../theme/variables.scss";
 .app {
-  position: relative;
-  min-height: 100%;
+    min-height: 100%;
 }
 .mainNav {
-  margin: 0;
-  padding: 0;
-  width: $side-bar-size;
-  background-color: #FAFAFA;
-  height: 100%;
-  position: fixed;
-  overflow: auto;
-  z-index: 3;
-  h3 {
-    color: $primary;
-    font-size: 14px;
-    font-family: $font-family-montserrat;
-    padding-left: 20px;
-    margin-top: 30px;
-  }
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-    a {
-      color: #8d9296;
-      li {
-        font-family: $font-family-montserrat;
+    margin: 0;
+    padding: 0;
+    width: $side-bar-size;
+    background-color: #FAFAFA;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    z-index: 3;
+    h3 {
+        color: $primary;
         font-size: 14px;
-        padding: 10px 40px;
-        &:hover {
-          background-color: $primary;
-          color: #FAFAFA;
+        font-family: $font-family-montserrat;
+        padding-left: 20px;
+        margin-top: 30px;
+    }
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        a {
+            color: #8d9296;
+            li {
+                font-family: $font-family-montserrat;
+                font-size: 14px;
+                padding: 10px 40px;
+                &:hover {
+                    background-color: $primary;
+                    color: #FAFAFA;
+                }
+                i {
+                    font-size: 18px;
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+    .social {
+        position: absolute;
+        text-align: center;
+        bottom: 45px;
+        left: 0;
+        right: 0;
+        .icons {
+            a {
+                color: #8d9296;
+                i {
+                    padding: 0 10px;
+                    font-size: 27px;
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-bottom: 10px;
+        font-size: 11px;
+        color: #8d9296;
+        font-family: $font-family-montserrat;
+        a {
+            color: #797D80;
         }
         i {
-          font-size: 18px;
-          padding-right: 15px;
+            color: $primary;
+            font-size: 10px;
         }
-      }
     }
-  }
 }
 .logo {
-  font-size: 30px;
-  text-align: center;
-  font-family: $font-family-sansation;
-  font-weight: bold;
-  color: #535659;
-  padding-top: 10px;
-  height: 40px;
-  background-color: $primary;
-  p {
-    margin: 0;
-  }
-  .color {
-    color: #FAFAFA;
-  }
+    font-size: 28px;
+    text-align: center;
+    font-family: $font-family-sansation;
+    font-weight: bold;
+    color: #535659;
+    padding-top: 10px;
+    height: 40px;
+    background-color: $primary;
+    p {
+        margin: 0;
+    }
+    .color {
+        color: #FAFAFA;
+    }
 }
 .search {
-  height: 50px;
-  width: 100%;
-  background-color: #505253;
-  margin-left: $side-bar-size;
-  color: #8d9296;
-  position: fixed;
-  box-shadow: 0 2px 20px -4px rgba(0,0,0,0.75);
-  z-index: 2;
-  i {
-    position: absolute;
-    font-size: 22px;
-    padding-top: 13px;
-    padding-left: 40px;
-  }
-  input {
-    font-family: $font-family-montserrat;
-    height: 48px;
+    height: 50px;
     width: 100%;
-    border: none;
-    background: none;
-    font-size: 18px;
-    padding-left: 80px;
-    &:focus {
-      outline: none;
+    background-color: $primary;
+    margin-left: $side-bar-size;
+    color: #FAFAFA;
+    position: fixed;
+    box-shadow: 0 0px 20px 0px rgba(0,0,0,0.30);
+    z-index: 2;
+    border-left: 2px solid rgba(64, 185, 155, 0.78);
+    i {
+        position: absolute;
+        font-size: 22px;
+        padding-top: 13px;
+        left: -300px;
+        right: 0;
+        text-align: center;
+        span {
+            padding: 0 20px;
+            font-family: $font-family-montserrat;
+            letter-spacing: 1px;
+        }
     }
-  }
+     ::-webkit-input-placeholder {
+        color: #FAFAFA;
+    }
+     :-moz-placeholder {
+        color: #FAFAFA;
+    }
+     ::-moz-placeholder {
+        color: #FAFAFA;
+    }
+     :-ms-input-placeholder {
+        color: #FAFAFA;
+    }
+    input {
+        font-family: $font-family-montserrat;
+        height: 48px;
+        width: 100%;
+        border: none;
+        background: none;
+        font-size: 18px;
+        padding-left: 80px;
+        color: #FAFAFA;
+        &:focus {
+            outline: none;
+            background-color: #40B99B;
+        }
+    }
 }
 .login {
-  position: fixed;
-  margin-left: calc(100% - 200px);
-  height: 50px;
-  width: 200px;
-  background-color: #585A5C;
-  z-index: 2;
+    position: fixed;
+    margin-left: calc(100% - 200px);
+    height: 50px;
+    width: 200px;
+    background-color: $primary;
+    z-index: 2;
+    border-left: 2px solid rgba(64, 185, 155, 0.78);
+    &:hover {
+        background-color: #40B99B;
+        cursor: pointer;
+    }
 }

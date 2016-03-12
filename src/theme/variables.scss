@@ -4,6 +4,15 @@
   src:url(asset-path('../../static/fonts/Sansation_Regular.ttf')) format('embedded-opentype'),
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 
@@ -13,6 +22,7 @@ $humility: #777;
 
 
 $primary: #44C7A7;
+$main-bg: #ECECEC;
 $side-bar-size: 250px;
 $font-family-sansation: 'Sansation';
 $font-family-montserrat: 'Montserrat';

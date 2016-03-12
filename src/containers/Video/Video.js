@@ -1,24 +1,33 @@
 import React, {Component} from 'react';
 import Helmet from 'react-helmet';
 import { Comments } from 'components';
+import { EditTitle } from 'components';
 
 export default class Video extends Component {
 
 constructor() {
   super();
   this.state = {
-    showComments: false
+    showComments: true,
   };
 }
 
 handleComment() {
   this.setState({
-    showComments: !this.state.showComments
+    showComments: true
   });
+	document.getElementById('desc').scrollIntoView();
+}
+
+handleTitle() {
+  this.setState({
+    showComments: false
+  });
+document.getElementById('desc').scrollIntoView();
 }
 
 title() {
-  document.getElementById('title').style.opacity = 0.05;
+  document.getElementById('title').style.zIndex = 0;
   document.getElementById('search').focus();
 }
 
@@ -29,9 +38,8 @@ title() {
     <div>
         <div className={styles.container}>
             <Helmet title="Video" />
-            <div className={styles.video}>
-                <div className={styles.title} onClick={this.title.bind(this)} id="title">Random guy shooting darts<span className={styles.points}>+32</span></div>
-                <video src="http://cdn.oddshot.tv/capture/lirik-20160301234246130.shot.mp4" controls="controls" poster="http://cdn.oddshot.tv/thumbs/lirik-20160301234246130.shot.thumb.jpg" preload="auto"></video>
+            <div className={styles.videoContain}>
+                <video src="http://cdn.oddshot.tv/capture/lirik-2016031118571894.shot.mp4" controls="controls" poster="http://cdn.oddshot.tv/thumbs/lirik-2016031118571894.shot.thumb.jpg" preload="auto"></video>
             </div>
         <div className={styles.userNav}>
             <div className={styles.bg}>
@@ -43,8 +51,8 @@ title() {
                             <span>Follow</span>
                         </div>
                 </div>
-                <div onClick={this.handleComment.bind(this)} className={styles.navButtons}><i className={styles.button + ' fa fa-comment'}/>Comment</div>
-                <div className={styles.navButtons}><i className={styles.button + ' fa fa-asterisk'}/>Edit Title</div>
+                <div onClick={this.handleComment.bind(this)} className={styles.navButtons}><i className={styles.button + ' fa fa-comment'}/>Comments</div>
+                <div onClick={this.handleTitle.bind(this)} className={styles.navButtons}><i className={styles.button + ' fa fa-asterisk'}/>Edit Title</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-star'}/>Favorite</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-share'}/>Share</div>
                 <div className={styles.navButtons}><i className={styles.button + ' fa fa-chevron-up'}/>Up Vote</div>
@@ -52,7 +60,8 @@ title() {
             </div>
         </div>
     </div>
-        {this.state.showComments && <Comments/>}
+        {this.state.showComments && <Comments />}
+        {!this.state.showComments && <EditTitle />}
     </div>
 	);
   }

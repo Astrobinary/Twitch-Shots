@@ -1,7 +1,7 @@
 @import "../../theme/variables.scss";
-.comments {
+.titles {
     margin-left: $side-bar-size;
-    background: $main-bg;
+    background: #ECECEC;
     padding-top: 40px;
     .contain {
         width: 50%;
@@ -32,8 +32,8 @@
                 }
             }
         }
-        .comment {
-            padding-bottom: 50px;
+        .title {
+            padding-bottom: 30px;
             .avatarImg {
                 position: relative;
                 z-index: 1;
@@ -41,7 +41,7 @@
                     width: 50px;
                     height: auto;
                     border-radius: 40px;
-                    border: 5px solid $main-bg;
+                    border: 5px solid #ECECEC;
                     display: inline-block;
                     margin-bottom: -25px;
                     box-sizing: content-box;
@@ -56,13 +56,12 @@
                 }
             }
         }
-        .singleComment {
+        .userTitle {
             position: relative;
             z-index: 0;
             display: inline-block;
             background: #FAFAFA;
             border-radius: 6px;
-            border-bottom-left-radius: 0;
             padding: 20px 30px;
             margin-left: 22px;
             margin-top: -20px;
@@ -70,25 +69,20 @@
             font-family: "Sansation";
             box-shadow: 0 0 25px 0 rgba(0,0,0,0.05);
             min-width: 90%;
-            border: 2px solid rgba(141, 146, 150, 0.29);
+            border: 1px solid #D4D4D4;
             .buttons {
                 position: absolute;
-                background: #FAFAFA;
-                margin-bottom: -26px;
-                padding: 2px 27px;
+                width: 26px;
+                padding: 2px 5px;
                 bottom: 0;
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-                font-size: 16px;
-                margin-left: -32px;
-                border-left: 2px solid rgba(141, 146, 150, 0.29);
-                border-bottom: 2px solid rgba(141, 146, 150, 0.29);
-                border-right: 2px solid rgba(141, 146, 150, 0.29);
-                padding-bottom: 5px;
+                border-radius: 8px;
+                font-size: 24px;
+                margin-left: -100px;
+                color: #A6ACB1;
                 .points {
                     color: #44C7A7;
-                    float: right;
-                    font-size: 13px;
+                    font-size: 17px;
+                    text-align: end;
                 }
                 i {
                     padding-right: 10px;
@@ -102,7 +96,7 @@
         }
         .input {
             width: 100%;
-            margin: 20px auto 40px;
+            margin: 20px auto 40px auto;
             .avatarImg {
                 position: relative;
                 z-index: 1;
@@ -110,7 +104,7 @@
                     width: 50px;
                     height: auto;
                     border-radius: 40px;
-                    border: 5px solid $main-bg;
+                    border: 5px solid #ECECEC;
                     display: inline-block;
                     box-sizing: content-box;
                     margin-bottom: -30px;
@@ -124,7 +118,7 @@
                     line-height: 3.3;
                 }
             }
-            textarea {
+            input {
                 width: 94%;
                 height: 50px;
                 border-radius: 6px;
@@ -134,11 +128,11 @@
                 border: 2px solid rgba(141, 146, 150, 0.29);
                 margin-left: 21px;
                 margin-top: -21px;
-                padding-left: 25px;
-                padding-top: 30px;
+                padding-left: 30px;
                 font-family: "Sansation";
                 color: #8D9296;
                 font-size: 16px;
+resize: both;
                 &:focus {
                     outline: none;
                     border: 2px solid $primary;

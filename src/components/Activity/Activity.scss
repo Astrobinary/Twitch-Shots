@@ -3,7 +3,7 @@
   margin-left: 35px;
   color: #8d9296;
   height: 45px;
- line-height: 52px;
+  line-height: 52px;
   font-family: $font-family-montserrat;
   font-size: 15px;
   img {
@@ -11,6 +11,7 @@
     width: auto;
     border-radius: 30px;
     margin-right: 10px;
+    vertical-align: middle;
   }
   .number {
     line-height: 1;
@@ -19,9 +20,9 @@
     background-color: $primary;
     color: #FAFAFA;
     padding: 4px;
-    width: 22px;
+    width: 13px;
     border-radius: 15px;
-    height: 20px;
+    height: 13px;
     display: inline-block;
     text-align: center;
     float: right;
