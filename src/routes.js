@@ -6,7 +6,7 @@ import {
     Chat,
     Home,
     Widgets,
-    About,
+    Popular,
     Video,
     Login,
     LoginSuccess,
@@ -20,7 +20,7 @@ export default (store) => {
       const { auth: { user }} = store.getState();
       if (!user) {
         // oops, not logged in, so can't be here!
-        replace('/');
+        replace('/login');
       }
       cb();
     }
@@ -47,10 +47,10 @@ export default (store) => {
       </Route>
 
       { /* Routes */ }
-      <Route path="about" component={About}/>;
-      <Route path="video" component={Video}/>
       <Route path="login" component={Login}/>
+      <Route path="popular" component={Popular}/>
       <Route path="survey" component={Survey}/>
+      <Route path="video" component={Video}/>
       <Route path="widgets" component={Widgets}/>
 
       { /* Catch all route */ }

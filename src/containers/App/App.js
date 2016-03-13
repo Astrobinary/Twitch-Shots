@@ -21,7 +21,6 @@ import { Link } from 'react-router';
     if (!isAuthLoaded(getState())) {
       promises.push(dispatch(loadAuth()));
     }
-
     return Promise.all(promises);
   }
 }])
@@ -42,38 +41,47 @@ export default class App extends Component {
     store: PropTypes.object.isRequired
   };
 
+  constructor() {
+    super();
+    this.state = {loginMenu: false};
+  }
+
   componentWillReceiveProps(nextProps) {
     if (!this.props.user && nextProps.user) {
-      // login
-      this.props.pushState('/loginSuccess');
+        this.props.pushState('/loginSuccess');
     } else if (this.props.user && !nextProps.user) {
-      // logout
-      this.props.pushState('/');
+        this.props.pushState('/');
     }
-  }
+}
 
   handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();
   };
-  handleBlur() {
-    if (document.getElementById('title')) {
-      document.getElementById('title').style.zIndex = 2;
-    }
-  }
-  handleClick() {
-     if (document.getElementById('title')) {
-       document.getElementById('title').style.zIndex = 0;
-     }
-   }
 
- handleLoginMenu() {
-   // console.log(logout);
- }
+  handleBlur() {
+      if (document.getElementById('title')) {
+          document.getElementById('title').style.opacity = 1;
+          document.getElementById('search').value = '';
+      }
+  }
+
+  handleClick() {
+    if (document.getElementById('title')) {
+        document.getElementById('title').style.opacity = 0;
+        document.getElementById('search').focus();
+    }
+}
+
+toggleLoginMenu() {
+    if (this.props.user) {
+        this.setState({loginMenu: !this.state.loginMenu});
+	}
+}
 
   render() {
-    // const {user} = this.props;
     const styles = require('./App.scss');
+	const {user} = this.props;
 
     return (
       <div className={styles.app}>
@@ -82,33 +90,22 @@ export default class App extends Component {
             <h3>MAIN MENU</h3>
             <ul>
               <Link to="/"> <li><i className="fa fa-home"/>Home</li></Link>
-              <Link to="/about"><li><i className="fa fa-fire"/>Popular</li></Link>
+              <Link to="/popular"><li><i className="fa fa-fire"/>Popular</li></Link>
               <Link to="/widgets"><li><i className="fa fa-star"/>Favorites</li></Link>
               <Link to="/video"><li><i className="fa fa-heart"/>Video Test</li></Link>
             </ul>
             <h3>NEW ACTIVITY</h3>
             <Activity />
-            <div className={styles.social}>
-                <div className={styles.icons}>
-                    <a href="https://twitter.com/_BrandonPadilla" target="_blank"><i className="fa fa-twitter"/></a>
-                    <a href="https://github.com/Agnostics" target="_blank"><i className="fa fa-github"/></a>
-                    <a href="https://github.com/Agnostics/Twitch-Shots/issues" target="_blank"><i className="fa fa-question-circle"/></a>
-                </div>
-            </div>
-            <footer>
-                <p>Made with <i className="fa fa-heart"/> by<a href="https://agnostics.github.io" target="_blank"> Brandon Padilla</a></p>
-            </footer>
         </div>
 
         <div className={styles.search}>
-			<i className="fa fa-search"><span>Random guy shotting darts</span></i>
+			<i onClick={this.handleClick.bind(this)} id="title" className="fa fa-search"><span>Twitch Shots | Home</span></i>
 
 			<input onClick={this.handleClick.bind(this)} onBlur={this.handleBlur.bind(this)} id="search"/>
         </div>
 
-        <div className={styles.login} onClick={this.handleLoginMenu.bind(this)}>
-            <Login/>
-            <div className={styles.loginMenu}></div>
+        <div className={styles.login} onClick={this.toggleLoginMenu.bind(this)} onMouseLeave={this.toggleLoginMenu.bind(this)}>
+            <Login user={user} logout={this.handleLogout.bind(this)} loginMenu={this.state.loginMenu}/>
         </div>
 
         <Helmet {...config.app.head}/>
@@ -116,6 +113,9 @@ export default class App extends Component {
         <div className={styles.appContent}>
           {this.props.children}
         </div>
+	  	<footer>
+	  		<p>Made with <i className="fa fa-heart"/> by<a href="https://agnostics.github.io" target="_blank"> Brandon Padilla</a></p>
+	  	</footer>
       </div>
     );
   }

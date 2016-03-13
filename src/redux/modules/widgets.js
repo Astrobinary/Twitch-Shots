@@ -1,11 +1,11 @@
-const LOAD = 'redux-example/widgets/LOAD';
-const LOAD_SUCCESS = 'redux-example/widgets/LOAD_SUCCESS';
-const LOAD_FAIL = 'redux-example/widgets/LOAD_FAIL';
-const EDIT_START = 'redux-example/widgets/EDIT_START';
-const EDIT_STOP = 'redux-example/widgets/EDIT_STOP';
-const SAVE = 'redux-example/widgets/SAVE';
-const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
-const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
+const LOAD = 'redux/widgets/LOAD';
+const LOAD_SUCCESS = 'redux/widgets/LOAD_SUCCESS';
+const LOAD_FAIL = 'redux/widgets/LOAD_FAIL';
+const EDIT_START = 'redux/widgets/EDIT_START';
+const EDIT_STOP = 'redux/widgets/EDIT_STOP';
+const SAVE = 'redux/widgets/SAVE';
+const SAVE_SUCCESS = 'redux/widgets/SAVE_SUCCESS';
+const SAVE_FAIL = 'redux/widgets/SAVE_FAIL';
 
 const initialState = {
   loaded: false,
@@ -36,6 +36,7 @@ export default function reducer(state = initialState, action = {}) {
         data: null,
         error: action.error
       };
+
     case EDIT_START:
       return {
         ...state,
@@ -52,6 +53,7 @@ export default function reducer(state = initialState, action = {}) {
           [action.id]: false
         }
       };
+
     case SAVE:
       return state; // 'saving' flag handled by redux-form
     case SAVE_SUCCESS:

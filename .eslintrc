@@ -17,7 +17,7 @@
     "no-console": 0,
     "no-alert": 0
   },
-  "plugins": [
+ "plugins": [
     "react", "import"
   ],
   "settings": {

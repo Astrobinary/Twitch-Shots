@@ -15,6 +15,7 @@ import { asyncConnect } from 'redux-async-connect';
     }
   }
 }])
+
 @connect(
   state => ({
     widgets: state.widgets.data,
@@ -23,6 +24,8 @@ import { asyncConnect } from 'redux-async-connect';
     loading: state.widgets.loading
   }),
   {...widgetActions, initializeWithKey })
+
+
 export default class Widgets extends Component {
   static propTypes = {
     widgets: PropTypes.array,
@@ -46,11 +49,11 @@ export default class Widgets extends Component {
     }
     const styles = require('./Widgets.scss');
     return (
-      <div className={styles.widgets + ' container'}>
+      <div className={styles.MainContainer}>
         <h1>
           Widgets
           <button className={styles.refreshBtn + ' btn btn-success'} onClick={load}>
-            <i className={refreshClassName}/> {' '} Reload Widgets
+            <i className={refreshClassName}/> Reload Widgets
           </button>
         </h1>
         <Helmet title="Widgets"/>
@@ -69,7 +72,7 @@ export default class Widgets extends Component {
           {' '}
           {error}
         </div>}
-        {widgets && widgets.length &&
+        {widgets &&
         <table className="table table-striped">
           <thead>
           <tr>

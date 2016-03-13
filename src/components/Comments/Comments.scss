@@ -1,6 +1,5 @@
 @import "../../theme/variables.scss";
 .comments {
-    margin-left: $side-bar-size;
     background: $main-bg;
     padding-top: 40px;
     .contain {
@@ -124,7 +123,7 @@
                     line-height: 3.3;
                 }
             }
-            textarea {
+            .textarea {
                 width: 94%;
                 height: 50px;
                 border-radius: 6px;
@@ -162,5 +161,22 @@
                 }
             }
         }
+        .error {
+            color: #43C1A2;
+            font-family: "Sansation";
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+            background: #FAFAFA;
+            box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+            min-width: 90%;
+            border: 2px solid rgba(141, 146, 150, 0.29);
+            width: 92%;
+            border-radius: 5px;
+            margin: 31px auto 31px 22px;
+            i {
+                padding-right: 10px;
+            }
+        };
     }
 }

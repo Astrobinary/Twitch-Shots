@@ -1,6 +1,10 @@
 @import "../../theme/variables.scss";
-.app {
-    min-height: 100%;
+.appContent {
+    padding-top: 50px;
+    margin-left: $side-bar-size;
+    background-color: $main-bg;
+    min-height: calc(100vh - 90px);
+    overflow-y: auto;
 }
 .mainNav {
     margin: 0;
@@ -38,43 +42,6 @@
             }
         }
     }
-    .social {
-        position: absolute;
-        text-align: center;
-        bottom: 45px;
-        left: 0;
-        right: 0;
-        .icons {
-            a {
-                color: #8d9296;
-                i {
-                    padding: 0 10px;
-                    font-size: 27px;
-                    &:hover {
-                        color: $primary;
-                    }
-                }
-            }
-        }
-    }
-    footer {
-        position: absolute;
-        text-align: center;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding-bottom: 10px;
-        font-size: 11px;
-        color: #8d9296;
-        font-family: $font-family-montserrat;
-        a {
-            color: #797D80;
-        }
-        i {
-            color: $primary;
-            font-size: 10px;
-        }
-    }
 }
 .logo {
     font-size: 28px;
@@ -95,13 +62,13 @@
 .search {
     height: 50px;
     width: 100%;
-    background-color: $primary;
+    background-color: #43C1A2;
     margin-left: $side-bar-size;
     color: #FAFAFA;
     position: fixed;
-    box-shadow: 0 0px 20px 0px rgba(0,0,0,0.30);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.30);
     z-index: 2;
-    border-left: 2px solid rgba(64, 185, 155, 0.78);
+    border-left: 2px solid rgba(64, 185, 155, 0.5);
     i {
         position: absolute;
         font-size: 22px;
@@ -136,6 +103,9 @@
         font-size: 18px;
         padding-left: 80px;
         color: #FAFAFA;
+        text-align: center;
+        margin-left: -200px;
+        font-size: 22px;
         &:focus {
             outline: none;
             background-color: #40B99B;
@@ -149,9 +119,54 @@
     width: 200px;
     background-color: $primary;
     z-index: 2;
-    border-left: 2px solid rgba(64, 185, 155, 0.78);
+    border-left: 2px solid rgba(64, 185, 155, 0.5);
     &:hover {
         background-color: #40B99B;
         cursor: pointer;
+    }
+}
+
+.social {
+    position: absolute;
+    text-align: center;
+    bottom: 45px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    position: relative;
+    .icons {
+        a {
+            color: #8d9296;
+            i {
+                padding: 0 10px;
+                font-size: 27px;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+footer {
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 250px;
+    font-size: 11px;
+    color: #8d9296;
+    z-index: 2;
+    font-family: $font-family-montserrat;
+    background-color: #FAFAFA;
+    p {
+        padding: 10px 0;
+        margin: 0;
+    }
+    a {
+        color: #797D80;
+    }
+    i {
+        color: $primary;
+        font-size: 10px;
     }
 }

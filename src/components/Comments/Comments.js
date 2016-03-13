@@ -1,22 +1,34 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import { connect } from 'react-redux';
+
+@connect(
+  state => ({user: state.auth.user}))
 
 export default class Comments extends Component {
+
+	static propTypes = {user: PropTypes.object};
 
   render() {
     const styles = require('./Comments.scss');
     const profile = require('../../../static/profile-test.jpg');
     const goldglove = require('../../../static/goldglove.jpg');
+	const {user} = this.props;
+
     return (
             <div id="comments" className={styles.comments}>
                 <div className={styles.contain}>
                     <div id="desc" className={styles.desc}>Comments<i className="fa fa-sort"></i>
                     </div>
 
-					<div className={styles.input} >
-					<div className={styles.avatarImg}><img src={profile}/><div className={styles.author}>Bob Sagot</div></div>
-					<textarea placeholder="Say something about the video here..."/>
-					<button>Submit</button>
-					</div>
+					{user && <div className={styles.input}>
+						<div className={styles.avatarImg}><img src={profile}/>
+							<div className={styles.author}>{user.name}</div>
+						</div>
+						<textarea className={styles.textarea} placeholder="Say something about the video here..."/>
+						<button>Submit</button>
+					</div>}
+
+					{!user && <div className={styles.error}><i className="fa fa-exclamation-circle"/>Must be logged in to comment</div>}
 
                     <div className={styles.comment}>
                         <div className={styles.avatarImg}><img src={goldglove}/><div className={styles.author}>Goldglove</div></div>

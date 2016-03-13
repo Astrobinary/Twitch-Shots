@@ -1,21 +1,49 @@
 @import "../../theme/variables.scss";
 .login {
-  margin-left: 35px;
-  color: #FAFAFA;
-  font-size: 16px;
-  font-family: $font-family-sansation;
-  height: 60px;
-  line-height: 50px;
-  position: absolute;
-  img {
-    height: 35px;
-    width: auto;
-    border-radius: 30px;
-    margin-right: 10px;
-    margin-bottom: -13px;
-  }
-  i {
-    padding-left: 10px;
-    font-size: 15px;
-  }
+    margin-left: 35px;
+    color: #FAFAFA;
+    font-size: 16px;
+    font-family: $font-family-sansation;
+    height: 60px;
+    line-height: 50px;
+    position: absolute;
+    img {
+        height: 35px;
+        width: auto;
+        border-radius: 30px;
+        margin-right: 10px;
+        margin-bottom: -13px;
+    }
+    i {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15px;
+    }
+}
+.loginMenu {
+    background-color: #40B99B;
+    position: absolute;
+    width: 200px;
+    margin-left: -35px;
+    border-bottom-left-radius: 5px;
+    ul {
+        list-style-type: none;
+        font-family: $font-family-montserrat;
+        font-size: 14px;
+        padding: 0;
+
+        li {
+            padding: 0 20px;
+            color: #FAFAFA;
+            i {
+                padding-right: 20px;
+                font-size: 22px;
+                vertical-align: middle;
+            }
+            &:hover {
+                background-color: #FAFAFA;
+                color: $primary;
+            }
+        }
+    }
 }

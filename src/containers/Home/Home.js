@@ -6,10 +6,11 @@ export default class Home extends Component {
     const styles = require('./Home.scss');
     // require the logo image both from client and server
     return (
-      <div className={styles.container}>
-        <Helmet title="Home"/>
-
-      </div>
+	<div>
+    <Helmet title="Home"/>
+		<div className={styles.MainContainer}>
+		</div>
+	</div>
     );
   }
 }
