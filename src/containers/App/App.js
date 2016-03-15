@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
 import { Login } from 'components';
-import { Activity } from 'components';
 import { routeActions } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
@@ -43,7 +42,10 @@ export default class App extends Component {
 
   constructor() {
     super();
-    this.state = {loginMenu: false};
+    this.state = {
+	loginMenu: false,
+	mainMenu: false
+	};
   }
 
   componentWillReceiveProps(nextProps) {
@@ -54,9 +56,10 @@ export default class App extends Component {
     }
 }
 
-  handleLogout = (event) => {
+  handleLogout = () => {
     event.preventDefault();
     this.props.logout();
+	this.setState({loginMenu: false});
   };
 
   handleBlur() {
@@ -73,10 +76,8 @@ export default class App extends Component {
     }
 }
 
-toggleLoginMenu() {
-    if (this.props.user) {
-        this.setState({loginMenu: !this.state.loginMenu});
-	}
+toggleMenu(menu) {
+    this.setState({[menu]: !this.state[menu]});
 }
 
   render() {
@@ -85,17 +86,19 @@ toggleLoginMenu() {
 
     return (
       <div className={styles.app}>
-        <div className={styles.mainNav}>
-            <Link to="/"><div className={styles.logo}><p>TWITCH<span className={styles.color}>SHOTS</span></p></div></Link>
-            <h3>MAIN MENU</h3>
-            <ul>
-              <Link to="/"> <li><i className="fa fa-home"/>Home</li></Link>
-              <Link to="/popular"><li><i className="fa fa-fire"/>Popular</li></Link>
-              <Link to="/widgets"><li><i className="fa fa-star"/>Favorites</li></Link>
-              <Link to="/video"><li><i className="fa fa-heart"/>Video Test</li></Link>
-            </ul>
-            <h3>NEW ACTIVITY</h3>
-            <Activity />
+        <div onMouseEnter={this.toggleMenu.bind(this, 'mainMenu')} onMouseLeave={this.toggleMenu.bind(this, 'mainMenu')} className={styles.mainNav}>
+			<div className={styles.logo}>
+				TWITCHSHOTS
+				<i className="fa fa-bars"/>
+					{this.state.mainMenu && <div className={styles.menu}>
+						<ul>
+							<Link to="/"> <li><i className="fa fa-home"/>Home</li></Link>
+							<Link to="/popular"><li><i className="fa fa-fire"/>Popular</li></Link>
+							<Link to="/widgets"><li><i className="fa fa-star"/>Favorites</li></Link>
+							<Link to="/video"><li><i className="fa fa-heart"/>Video Test</li></Link>
+						</ul>
+					</div>}
+			</div>
         </div>
 
         <div className={styles.search}>
@@ -104,7 +107,7 @@ toggleLoginMenu() {
 			<input onClick={this.handleClick.bind(this)} onBlur={this.handleBlur.bind(this)} id="search"/>
         </div>
 
-        <div className={styles.login} onClick={this.toggleLoginMenu.bind(this)} onMouseLeave={this.toggleLoginMenu.bind(this)}>
+        <div className={styles.login} onMouseEnter={this.toggleMenu.bind(this, 'loginMenu')} onMouseLeave={this.toggleMenu.bind(this, 'loginMenu')}>
             <Login user={user} logout={this.handleLogout.bind(this)} loginMenu={this.state.loginMenu}/>
         </div>
 

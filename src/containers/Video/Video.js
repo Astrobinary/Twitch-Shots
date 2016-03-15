@@ -39,7 +39,7 @@ title() {
         <div className={styles.topContain}>
             <Helmet title="Video" />
             <div className={styles.videoContain}>
-                <video src="http://cdn.oddshot.tv/capture/lirik-2016031118571894.shot.mp4" controls="controls" poster="http://cdn.oddshot.tv/thumbs/lirik-2016031118571894.shot.thumb.jpg" preload="auto"></video>
+                <video src="http://cdn.oddshot.tv/capture/lirik-2016031118571894.shot.mp4" controls="controls" poster="http://cdn.oddshot.tv/thumbs/lirik-2016031118571894.shot.thumb.jpg" preload="auto" ></video>
             </div>
         <div className={styles.userNav}>
             <div className={styles.bg}>

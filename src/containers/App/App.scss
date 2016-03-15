@@ -9,12 +9,13 @@
 .mainNav {
     margin: 0;
     padding: 0;
-    width: $side-bar-size;
-    background-color: #FAFAFA;
-    height: 100%;
+    width: 199px;
+    background-color: $primary;
     position: fixed;
-    overflow: auto;
     z-index: 3;
+    &:hover {
+        background-color: #43C1A2;
+    }
     h3 {
         color: $primary;
         font-size: 14px;
@@ -30,7 +31,7 @@
             li {
                 font-family: $font-family-montserrat;
                 font-size: 14px;
-                padding: 10px 40px;
+                padding: 10px 25px;
                 &:hover {
                     background-color: $primary;
                     color: #FAFAFA;
@@ -43,25 +44,52 @@
         }
     }
 }
+.menu {
+    position: fixed;
+    z-index: 10;
+    background: #40B99B;
+    width: 199px;
+    border-bottom-right-radius: 5px;
+    //margin-top: 50px;
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        a {
+            color: #8d9296;
+            li {
+                font-family: $font-family-montserrat;
+                font-size: 14px;
+                color: #FAFAFA;
+                text-align: left;
+                margin-left: -12px;
+                &:hover {
+                    background-color: #FAFAFA;
+                    color: $primary;
+                }
+                i {
+                    font-size: 18px;
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+}
 .logo {
-    font-size: 28px;
     text-align: center;
     font-family: $font-family-sansation;
-    font-weight: bold;
-    color: #535659;
-    padding-top: 10px;
-    height: 40px;
-    background-color: $primary;
-    p {
-        margin: 0;
-    }
-    .color {
-        color: #FAFAFA;
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    color: #FAFAFA;
+    vertical-align: middle;
+    line-height: 2.7;
+    i {
+        padding-left: 15px;
     }
 }
 .search {
     height: 50px;
-    width: 100%;
+    width: calc(100% - 18px);
     background-color: #43C1A2;
     margin-left: $side-bar-size;
     color: #FAFAFA;
@@ -69,15 +97,16 @@
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.30);
     z-index: 2;
     border-left: 2px solid rgba(64, 185, 155, 0.5);
+    cursor: text;
     i {
         position: absolute;
         font-size: 22px;
         padding-top: 13px;
-        left: -300px;
+        left: 0;
         right: 0;
         text-align: center;
         span {
-            padding: 0 20px;
+            padding: 0 10px;
             font-family: $font-family-montserrat;
             letter-spacing: 1px;
         }
@@ -101,10 +130,8 @@
         border: none;
         background: none;
         font-size: 18px;
-        padding-left: 80px;
         color: #FAFAFA;
         text-align: center;
-        margin-left: -200px;
         font-size: 22px;
         &:focus {
             outline: none;
@@ -121,11 +148,9 @@
     z-index: 2;
     border-left: 2px solid rgba(64, 185, 155, 0.5);
     &:hover {
-        background-color: #40B99B;
-        cursor: pointer;
+        background-color: #43C1A2;
     }
 }
-
 .social {
     position: absolute;
     text-align: center;
@@ -152,7 +177,6 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    margin-left: 250px;
     font-size: 11px;
     color: #8d9296;
     z-index: 2;

@@ -26,7 +26,7 @@ export default class Login extends Component {
 		</div>}
 
 		{!this.props.user && <Link to="/login"><div className={styles.login}>
-			 <i className="fa fa-sign-in"/> LOGIN
+			 <i className="fa fa-sign-in"/> SIGN IN
 		</div></Link>}
 	</div>
 
